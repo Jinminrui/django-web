@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Keen King的博客</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href={% static 'css/bootstrap.min.css' %}>
+    <link rel="stylesheet" href={% static 'css/Mycss.css' %}>
+    <link rel="stylesheet" href={% static 'css/styles.css' %}>
+</head>
+<body>
+
+{% block content %}
+    {% for post in blog_list %}
+        <div style="overflow:hidden; background:url({% static 'images/bg4.jpg' %});">
+            <div class="container" >
+                <div class="leftcol" >
+                    <div class="title" >
+                        <a href="{% url 'blog_get_detail' post.id %}"><h3>{{ post.title }}</h3></a>
+                    </div>
+                    <div class="panel" style="border:2px solid #b9def0;border-radius:25px;box-shadow: 10px 10px 5px #888888;">
+                        <div class="content" style="overflow:hidden; background:url({% static 'images/bg4.jpg' %});">
+                            <h4>标签：{{ post.category }}</h4>
+                            <p>{{ post.content | truncatechars:200}}</p>
+                            <div class=" button" style="float: right">更新时间：{{ post.update_time }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}
+
+
+</body>
+</html>

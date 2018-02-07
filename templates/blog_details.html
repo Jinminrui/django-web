@@ -1,0 +1,109 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ blog.title }}</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href={% static 'css/bootstrap.min.css' %}>
+    <link rel="stylesheet" href={% static 'css/Mycss.css' %}>
+</head>
+<body>
+<nav class="nav  navbar-fixed-top navbar-inverse"  role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand nav-title">
+                <p>{{ blog.title }}</p>
+            </div>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="cative">
+                    <a href="#">Home</a>
+                </li>
+
+                <li class="cative">
+                    <a href="#">About</a>
+                </li>
+
+                <li class="cative">
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="header-img" style="background: url({% static 'images/7.jpg'%});width: 100%;height: 350px;">
+    <h1 style="padding: 150px;color: white">Keen King's BLOG</h1>
+</div>
+
+<div style="overflow:hidden;">
+    <div class="row">
+        <div class="col-sm-8" style="line-height: 1.5">
+            <div style="margin-bottom: 60px">
+                <h2 style="margin-bottom: 5px;font-size: 40px">{{ blog.title }}</h2>
+                <p style="margin-bottom: 20px;color: #999">{{ blog.update_time }}</p>
+                <hr>
+
+                <p>{{ blog.content }}</p>
+            </div>
+        </div>
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p>Donec neque erat, rutrum eget vehicula eleifend, tempus vitae nulla. Duis consequat molestie dignissim. Nulla porttitor placerat nunc, a aliquet felis posuere vel. Sed malesuada dictum lobortis. Curabitur porttitor dui vel justo dictum condimentum. Vivamus dapibus dignissim aliquet. Pellentesque lacinia rutrum quam vel condimentum aliquam nulla sednisi.
+
+</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">March 2014</a></li>
+              <li><a href="#">February 2014</a></li>
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+              <li><a href="#">September 2013</a></li>
+              <li><a href="#">August 2013</a></li>
+              <li><a href="#">July 2013</a></li>
+              <li><a href="#">June 2013</a></li>
+              <li><a href="#">May 2013</a></li>
+              <li><a href="#">April 2013</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+    </div>
+
+
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src={% static 'js/jquery.min.js' %}></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src={% static 'js/bootstrap.min.js' %}></script>
+</body>
+</html>
